@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>{{ page.title }}</title>
+  <link href="/css/grid.css" type="text/css" rel="stylesheet" media="screen"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+  <script type='text/javascript' src='js/jquery.js'></script>
+  <script type='text/javascript' src='js/pin.js'></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-75504-7']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="wrap">
+  
+  <div class="row">
+    <div class="column grid_3" id="thjnk"><h1><a href="http://notes.thjnk.org">notes.thjnk</a></h1></div>
+    <div class="column grid_7" id="six">-</div>
+  </div>
+
+
+
+      {{ content }}
+
+
+</div>
+<div id="footer">
+  <div class="row" >
+    <div class="column grid_5"><p>My name is <strong>Stephen LaPorte</strong>.</p>
+      <p>Please read about <a href="http://thjnk.com/projects.html">my projects</a>, or find me on</p>
+      <ul>
+      <li>pinboard, <a href="http://pinboard.in/u:slaporte">u:slaporte</a>;</li>
+      <li>flickr, <a href="http://www.flickr.com/photos/slaporte/">slaporte</a>;</li>
+      <li>wikipedia, <a href="http://en.wikipedia.org/wiki/User:Slaporte">User:Slaporte</a>; or</li>
+      <li>email, <a href="mailto:stephen@thjnk.com">stephen@thjnk.com</a>.</li>
+      </ul>
+      <p>Copyright 2011-12 Stephen LaPorte. Powered by Jackyll.</p>
+    </div>
+    <div class="column grid_5"></div>
+  </div>
+</div>
+</body>
+</html>

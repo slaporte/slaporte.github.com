@@ -1,1 +1,31 @@
-working
+---
+layout: default
+title: Stephen LaPorte
+---
+<div class="row" id="main">
+    <div class="column grid_10" id="content">
+        <div class="center">
+            <p style='margin-top:5em'> </p>
+            <div id="home">
+                {% for post in site.posts %}
+                    {% if post.title == site.posts.first.title %}
+                
+                </header>
+                <ul class="posts">
+                {% endif %}
+                    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+                </ul>
+                <p style='margin-top:5em'> </p>
+            </div>
+            <div id="pin">
+                <header>
+                <h1>Stuff I'm reading</h1>
+                </header>
+                <p></p>
+            </div>
+            <p>---</p>
+            <p><a href='http://feeds.pinboard.in/rss/secret:f2d67c7a900d15a3eaa1/u:slaporte/'>RSS feed</a> of recent links. Archive on <a href='http://pinboard.in/u:slaporte'>pinboard</a>.</div>
+        </div>
+    </div>
+</div>
