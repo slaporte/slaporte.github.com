@@ -1,0 +1,219 @@
+<html>
+<head>
+  <title>#DefinitionsByTedCruz</title>
+  <script src="jquery.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="twitter.css">
+  <style>
+  body {
+    margin: 1em;
+  }
+  form, input {
+    display: inline-block;
+    font-size: 1em;
+  }
+  h1 {
+    font-size: 6em;
+    font-weight: 300;
+    text-align: center;
+    margin: 2em 0 1em 0;
+  }
+  h1 a {
+    color: black !important;
+    text-decoration: none;
+  }
+  h1 a:hover {
+    color: red !important;
+  }
+  a {
+    color: blue;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: red;
+  }
+  .intro {
+    margin: 1em;
+    text-align: center;
+  }
+  .intro p {
+    font-size: 2.5em;
+  }
+  .nav {
+    text-align: center;
+  }
+  .button {
+    display: inline-block;
+    border: 0;
+    margin: 1em 0 0 0.5em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    background: #e1e1e1;
+    text-decoration: none;
+    color: #666666;
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+  .button:hover {
+    background: red;
+    color: white;
+  }
+  #thoughts {
+    text-align: center;
+  }
+  #topic {
+    border: 0;
+    border-bottom: 2px red dotted;
+  }
+  </style>
+  <script>
+  var url = 'http://en.wikipedia.org/w/api.php';
+  function get_random(cb) {
+    var params = {
+      'action': 'query',
+      'list': 'random',
+      'rnlimit': 1,
+      'format': 'json',
+      'rnnamespace': 0
+    };
+    $.ajax({
+      dataType: 'jsonp',
+      url: url,
+      data: params,
+    }).done(cb);
+  }
+  function get_links(page_name, cb) {
+    var params = {
+      'action': 'query',
+      'redirects': 'true',
+      'prop': 'links',
+      'pllimit': 500,
+      'titles': page_name,
+      'plnamespace': 0,
+      'format': 'json'
+    };
+    $.ajax({
+      dataType: 'jsonp',
+      url: url,
+      data: params,
+    }).done(cb);
+  }
+  function select_random_link(data) {
+    var page_ids = data['query']['pages'];
+    for (page in page_ids) {
+      if (page_ids.hasOwnProperty(page)) {
+        var links = page_ids[page]['links'];
+      }
+    }
+    return links[Math.round(Math.random() * links.length - 1)]['title'];
+  }
+  function obamacare(val) {
+    var page_title, link, another_link;
+    get_random(function(data) {
+      page_title = data['query']['random'][0]['title'];
+      get_links(page_title, function(data) {
+        link = select_random_link(data);
+        get_links(link, function(data) {
+          another_link = select_random_link(data);
+          $('.internet').html(link);
+          $('#net-neutrality').html(page_title);
+          $('#topic').val(page_title).attr('size', page_title.length + 1);
+          $('#government').html(another_link);
+        });
+      });
+    });
+  }
+  $(function() {
+    
+    obamacare();
+    $('#again').click(obamacare);
+
+    $('#thoughts').submit(function(e) {
+      e.preventDefault();
+
+      var page_title = $('#topic').val();
+      get_links(page_title, function(data) {
+        link = select_random_link(data);
+        get_links(link, function(data) {
+          another_link = select_random_link(data);
+          $('.internet').html(link);
+          $('#net-neutrality').html(page_title);
+          $('#topic').val(page_title).attr('size', page_title.length + 1);
+          $('#government').html(another_link);
+        });
+      });
+    });
+    
+  });
+  </script>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-75504-7']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+</head>
+<body>
+  <h1>#<a href="https://twitter.com/search?q=%23DefinitionsByTedCruz">DefinitionsByTedCruz</a></h1>
+  <div class="intro"><form id="thoughts"><p>What does ted cruz think about <input type="text" id="topic" value="Net Neutrality" /> <input type="submit" value="?" class="button" /> <a id="again" class="button" href="#">Try another.</a></p></form>
+  <div style="display: block; max-width: 99%; min-width: 220px; padding: 0px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; margin: 4em auto; border-color: rgb(238, 238, 238) rgb(221, 221, 221) rgb(187, 187, 187); border-width: 1px; border-style: solid; box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 3px; position: static; visibility: visible; width: 500px; zoom: 150%">
+    <div class="root standalone-tweet ltr twitter-tweet not-touch" dir="ltr" data-dt-months="Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec" data-dt-full="%{hours12}:%{minutes} %{amPm} - %{day} %{month} %{year}" data-dt-am="AM" data-dt-pm="PM" data-iframe-title="Embedded Tweet" data-scribe="page:tweet" id="twitter-widget-0" lang="en" data-twitter-event-id="0">
+      <blockquote class="tweet subject expanded h-entry" data-tweet-id="531834493922189313" cite="#" data-scribe="section:subject">
+        <div class="header">
+          <div class="h-card p-author with-verification" data-scribe="component:author">
+            <a class="u-url profile" href="#" aria-label="Senator Ted Cruz (screen name: SenTedCruz)" data-scribe="element:user_link">
+              <img class="u-photo avatar" alt="" src="https://pbs.twimg.com/profile_images/3396959978/e4a57f152c58effe0df43affb2e27ab8_normal.jpeg" data-src-2x="https://pbs.twimg.com/profile_images/3396959978/e4a57f152c58effe0df43affb2e27ab8_bigger.jpeg" data-scribe="element:avatar">
+              <span class="full-name">
+                <span class="p-name customisable-highlight" data-scribe="element:name">Senator Ted Cruz</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="verified" title="Verified Account" aria-label="Verified Account" data-scribe="element:verified_badge"><b>✔</b></span>
+              </span>
+              <span class="p-nickname" dir="ltr" data-scribe="element:screen_name">@<b>SenTedCruz</b></span>
+
+            </a>
+          </div>
+
+          <a class="follow-button profile" href="#" role="button" data-scribe="component:followbutton" title="Follow Senator Ted Cruz on Twitter"><i class="ic-button-bird"></i>Follow</a>
+        </div>
+        <div class="content e-entry-content" data-scribe="component:tweet">
+          <p class="e-entry-title">"<span id="net-neutrality">Net Neutrality</span>" is Obamacare for <span class="internet">the Internet</span>; <span class="internet">the Internet</span> should not operate at the speed of <span id="government">government</span>.</p>
+          <div class="dateline collapsible-container">
+            <a class="u-url customisable-highlight long-permalink" href="#" data-datetime="2014-11-10T15:43:19+0000" data-scribe="element:full_timestamp"><time pubdate="" class="dt-updated" datetime="2014-11-10T15:43:19+0000" title="Time posted: 10 Nov 2014, 15:43:19 (UTC)">7:43 AM - 10 Nov 2014</time></a>
+          </div>
+        </div>
+        <div class="footer customisable-border" data-scribe="component:footer">
+          <span class="stats-narrow customisable-border">
+            <span class="stats" data-scribe="component:stats">
+              <a href="#" title="View Tweet on Twitter" data-scribe="element:retweet_count">
+                <span class="stats-retweets">
+                  <strong>2,343</strong> Retweets
+                </span>
+              </a>
+              <a href="#" title="View Tweet on Twitter" data-scribe="element:favorite_count">
+                <span class="stats-favorites">
+                  <strong>1,040</strong> favorites
+                </span>
+              </a>
+            </span>
+          </span>
+          <ul class="tweet-actions" role="menu" aria-label="Tweet actions" data-scribe="component:actions">
+            <li><a href="#" class="reply-action web-intent" title="Reply" data-scribe="element:reply"><i class="ic-reply ic-mask"></i><b>Reply</b></a></li>
+            <li><a href="#" class="retweet-action web-intent" title="Retweet" data-scribe="element:retweet"><i class="ic-retweet ic-mask"></i><b>Retweet</b></a></li>
+            <li><a href="#" class="favorite-action web-intent" title="Favorite" data-scribe="element:favorite"><i class="ic-fav ic-mask"></i><b>Favorite</b></a></li>
+          </ul>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+  <div class="nav">
+    <p></p>
+    <p>Let's talk about <a href="https://www.eff.org/deeplinks/2014/11/white-house-gets-it-net-neutrality-will-fcc-0">net neutrality</a>. </p>
+  </div>
+</body>
+</body>
